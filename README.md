@@ -1,7 +1,5 @@
 # aggroRank
 
-# PUBG Player Stats Server
-
 This Node.js application serves as an Express.js server to retrieve and display player statistics from PUBG (PlayerUnknown's Battlegrounds) via the PUBG official API. It also provides an endpoint for external access to these statistics, ideal for integration with other applications such as a Discord bot.
 
 ## Features
