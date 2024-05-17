@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dojo Ranking</title>
+    <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="/Aggro.png">
+</head>
+<body class="css-selector">
+
+
+  
+
+     
+  
+    <div class="div2">
+
+
+    <div id="ekwfl">
+      <div id="ekwfl2">
+        <h1>Aggro <br> LeaderBoard</h1>
+        <p id="p1">Aggro Player Stat's LeaderBoard</p>
+      </div>
+        <!--timelineFilterBtn-->
+   
+    </div>
+
+
+      
+
+      <video autoplay muted loop id="video-background">
+        <source src="/purpleBackground.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    
+    
+    <% players.forEach(function(player, index) { %>
+      <div class="dropdown x11 css-selector <%= index === 0 ? 'first-place' : '' %>">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="<%= index === 0 ? 'first-place-name' : 'name' %>"><%= player.name %> <%= index === 0 ? "(1st Place!)" : "" %></span>
+          </button>
+                
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#"><b>Final Score:</b> <i><%= player.finalScore.toFixed(2) %></i></a></li>
+          <li><a class="dropdown-item" href="#"><b>Rounds Played:</b> <i><%= player.roundsPlayed.toLocaleString() %></i></a></li>
+          <li><a class="dropdown-item" href="#"><b>Total Damage:</b> <i><%= player.overallDamage.toLocaleString() %></i></a></li>
+          <li><a class="dropdown-item" href="#"><b>Total Kills:</b> <i><%= player.totalKills.toLocaleString() %></i></a></li>
+          <li><a class="dropdown-item" href="#"><b>DBNOs:</b> <i><%= player.dBNOs ? player.dBNOs.toLocaleString() : 'N/A' %></i></a></li>
+          <li><a class="dropdown-item" href="#"><b>Wins:</b> <i><%= player.wins ? player.wins.toLocaleString() : 'N/A' %></i></a></li>
+        </ul>
+      </div>
+    <% }); %>
+    
+    
+    
+    
+    
+          
+        
+
+          
+
+          
+        
+    </div>
+
+    <div class="div3">
+      <h2>Top Numbers</h2>
+      <% if (players.length > 0) { %>
+      <div class="div3Div1">
+          <h3><%= players[0].name %></h3>
+          <ul>Damage Dealt: <%= players[0].overallDamage.toLocaleString() %></ul>
+          <ul>Kills: <%= players[0].totalKills %></ul>
+          <ul>DBNOs: <%= players[0].dBNOs %></ul> 
+          <ul>Wins: <%= players[0].wins %></ul>
+      </div>
+      <% } %>
+      <% if (players.length > 1) { %>
+      <div class="div3Div2">
+          <h3><%= players[1].name %></h3>
+          <ul>Damage Dealt: <%= players[1].overallDamage.toLocaleString() %></ul>
+          <ul>Kills: <%= players[1].totalKills %></ul>
+          <ul>DBNOs: <%= players[1].dBNOs %></ul> 
+          <ul>Wins: <%= players[1].wins %></ul> 
+      </div>
+      <% } %>
+  </div>
+  
+    
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+
+</body>
+</html>
